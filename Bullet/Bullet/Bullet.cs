@@ -24,4 +24,8 @@ public partial class Bullet : Node2D
 	{
 		ReturnToPool();
 	}
+	public void TransitToNextMovement(Movement movement)
+	{
+
+	}
 }
