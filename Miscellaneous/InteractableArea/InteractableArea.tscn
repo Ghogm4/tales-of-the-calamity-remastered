@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://7820jkdv42dq"]
+
+[ext_resource type="Script" uid="uid://d0rexa145tsg5" path="res://Miscellaneous/InteractableArea/InteractableArea.cs" id="1_ajlmm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajlmm"]
+resource_local_to_scene = true
+
+[node name="InteractableArea" type="Area2D"]
+script = ExtResource("1_ajlmm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="OutboundChecker" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ajlmm")

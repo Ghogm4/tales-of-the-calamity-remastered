@@ -1,9 +1,10 @@
 # Godot 4+ specific ignores
-.godot/
+*.godot
 .nomedia
 
 # Godot-specific ignores
-.import/
+*.import
+*.cs.uid
 export.cfg
 export_credentials.cfg
 

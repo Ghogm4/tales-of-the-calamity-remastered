@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://t3ls2bpp4281"]
+
+[ext_resource type="PackedScene" uid="uid://7820jkdv42dq" path="res://Miscellaneous/InteractableArea/InteractableArea.tscn" id="1_qfvb3"]
+[ext_resource type="Script" uid="uid://27rm852t0nbk" path="res://Bullet/Bullet/Bullet.cs" id="1_w3ipu"]
+[ext_resource type="Texture2D" uid="uid://d27acwwxcg26i" path="res://Assets/Bullets/GreenSlimeBlock.png" id="2_w3ipu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nts4d"]
+resource_local_to_scene = true
+size = Vector2(8, 8)
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_w3ipu")
+
+[node name="InteractableArea" parent="." instance=ExtResource("1_qfvb3")]
+
+[node name="Sprite2D" parent="InteractableArea" index="0"]
+texture = ExtResource("2_w3ipu")
+
+[node name="OutboundChecker" parent="InteractableArea" index="1"]
+position = Vector2(0, 4.17233e-07)
+scale = Vector2(0.8, 0.8)
+
+[node name="Hitbox" parent="InteractableArea" index="2"]
+shape = SubResource("RectangleShape2D_nts4d")
+
+[node name="LifeTimer" type="Timer" parent="."]
+
+[connection signal="screen_exited" from="InteractableArea/OutboundChecker" to="." method="OnScreenExited"]
+[connection signal="timeout" from="LifeTimer" to="." method="OnLifeTimeExceeded"]
+
+[editable path="InteractableArea"]
