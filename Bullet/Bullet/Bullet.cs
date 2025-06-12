@@ -42,7 +42,7 @@ public partial class Bullet : Node2D
 		Tween tween = GetTree().CreateTween();
 		GetNode<InteractableArea>("InteractableArea").SetPhysicsProcess(false);
 		tween.TweenProperty(this, "modulate:a", 0, 0.1f);
-        tween.Parallel().TweenProperty(this, "scale", 0, 0.1f);
+		tween.Parallel().TweenProperty(this, "scale", Vector2.Zero, 0.1f);
 		tween.Finished += ReturnToPool;
 	}
 }
