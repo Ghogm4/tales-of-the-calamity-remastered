@@ -9,8 +9,8 @@ public partial class Circular : Movement
     private Vector2 _pivot = Vector2.Zero;
     private float _angularSpeed = 1.57f;
     private int _direction = 0;
-    public Circular(Movement movement, float transitionTime, Bullet context, float radius, float radiusAcce, Vector2 pivot, bool clockwise)
-        : base(movement, transitionTime, context)
+    public Circular(Movement movement, float transitionTime, float radius, float radiusAcce, Vector2 pivot, bool clockwise)
+        : base(movement, transitionTime)
     {
         NextMovement = movement;
         _radius = radius;
