@@ -45,7 +45,7 @@ public partial class AudioManager : Node
     // Use the _bgmPlayer to play BGM.
     public void PlayBGM(string bgmName)
     {
-        AudioStream stream = ResourceLoader.Load<AudioStream>($"res://Assets/Sound/{bgmName}.mp3");
+        AudioStream stream = ResourceLoader.Load<AudioStream>($"res://Assets/Music/{bgmName}.mp3");
         _bgmPlayer.Stream = stream;
         _bgmPlayer.Play();
     }

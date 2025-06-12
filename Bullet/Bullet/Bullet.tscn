@@ -23,9 +23,6 @@ scale = Vector2(0.8, 0.8)
 [node name="Hitbox" parent="InteractableArea" index="2"]
 shape = SubResource("RectangleShape2D_nts4d")
 
-[node name="LifeTimer" type="Timer" parent="."]
-
 [connection signal="screen_exited" from="InteractableArea/OutboundChecker" to="." method="OnScreenExited"]
-[connection signal="timeout" from="LifeTimer" to="." method="OnLifeTimeExceeded"]
 
 [editable path="InteractableArea"]

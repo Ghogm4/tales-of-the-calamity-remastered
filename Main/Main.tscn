@@ -1,30 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddvypv8a84ql4"]
 
-[sub_resource type="CSharpScript" id="CSharpScript_io50f"]
-script/source = "using Godot;
-using System;
-// For Collision References:
-// Layer 1: Player
-// Layer 2: Enemy
-// Layer 3: Player's Bullet
-// Layer 4: Enemy's Bullet
-
-// For Play Region References:
-// Left: 46, Right: 1303, Top: 37, Bottom: 1397
-// MidX * 2: 1349， MidY * 2: 1434 
-// Size.X: 1257, Size.Y: 1360
-public partial class Main : Node
-{
-    public override void _Ready()
-    {
-
-    }
-
-    public override void _Process(double delta)
-    {
-    }
-}
-"
+[ext_resource type="Script" uid="uid://b5nbga14ad2x1" path="res://Main/Main.cs" id="1_lxy7q"]
 
 [node name="Main" type="Node"]
-script = SubResource("CSharpScript_io50f")
+script = ExtResource("1_lxy7q")
