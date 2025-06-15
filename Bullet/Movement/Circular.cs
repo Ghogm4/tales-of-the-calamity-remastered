@@ -30,7 +30,6 @@ public partial class Circular : Movement
         );
         _radius += _radiusAcce * (float)delta;
         CurrentRadian += _angularSpeed * _direction * (float)delta;
-        GD.Print(Context.Position);
     }
     public override void ReceiveVelocity(Vector2 velocity)
     {

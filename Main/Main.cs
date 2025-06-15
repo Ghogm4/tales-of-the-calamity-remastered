@@ -13,6 +13,7 @@ public partial class Main : Node
             )
         .SetBulletSpecific(new Vector2(500, 0), 5f, true);
         AddChild(builder.GetResult());
+        AddChild(new BulletPattern());
     }
 
     public override void _Process(double delta)
