@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0v3ly3b8rygp"]
 
-[ext_resource type="PackedScene" uid="uid://7820jkdv42dq" path="res://Miscellaneous/InteractableArea/InteractableArea.tscn" id="1_epr5s"]
+[ext_resource type="PackedScene" uid="uid://7820jkdv42dq" path="res://Utility/InteractableArea/InteractableArea.tscn" id="1_epr5s"]
 [ext_resource type="Texture2D" uid="uid://3ymq7mq88vcw" path="res://Assets/Enemies/GreenSlime.png" id="2_vonkd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vso2s"]

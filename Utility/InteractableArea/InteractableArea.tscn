@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://7820jkdv42dq"]
 
-[ext_resource type="Script" uid="uid://d0rexa145tsg5" path="res://Miscellaneous/InteractableArea/InteractableArea.cs" id="1_ajlmm"]
+[ext_resource type="Script" uid="uid://d0rexa145tsg5" path="res://Utility/InteractableArea/InteractableArea.cs" id="1_ajlmm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ajlmm"]
 resource_local_to_scene = true

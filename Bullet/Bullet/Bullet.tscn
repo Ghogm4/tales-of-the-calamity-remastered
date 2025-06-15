@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://t3ls2bpp4281"]
 
-[ext_resource type="PackedScene" uid="uid://7820jkdv42dq" path="res://Miscellaneous/InteractableArea/InteractableArea.tscn" id="1_qfvb3"]
+[ext_resource type="PackedScene" uid="uid://7820jkdv42dq" path="res://Utility/InteractableArea/InteractableArea.tscn" id="1_qfvb3"]
 [ext_resource type="Script" uid="uid://27rm852t0nbk" path="res://Bullet/Bullet/Bullet.cs" id="1_w3ipu"]
 [ext_resource type="Texture2D" uid="uid://d27acwwxcg26i" path="res://Assets/Bullets/GreenSlimeBlock.png" id="2_w3ipu"]
 
