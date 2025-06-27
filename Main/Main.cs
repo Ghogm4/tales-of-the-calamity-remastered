@@ -8,8 +8,8 @@ public partial class Main : Node
         BulletBuilder builder = new();
         builder
             .SetMovementPhases(
-            new Accelerative(null, 2f, new Vector2(0, 500)),
-            new Circular(null, 999f, 150, 0, new Vector2(400, 500), false)
+            new Accelerative(2f, new Vector2(0, 500)),
+            new Circular(999f, 150, 0, new Vector2(400, 500), false)
             )
         .SetBulletSpecific(new Vector2(500, 0), 5f, true);
         AddChild(builder.GetResult());

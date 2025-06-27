@@ -8,9 +8,8 @@ public partial class Movement : Node
 	public Bullet Context = null;
 	private Vector2 _lastPosition = Vector2.Zero;
 	private float _frameDuration = 0.0167f;
-	public Movement(Movement movement, float transitionTime)
+	public Movement(float transitionTime)
 	{
-		NextMovement = movement;
 		TransitionTime = transitionTime;
 	}
 	public override void _Ready()

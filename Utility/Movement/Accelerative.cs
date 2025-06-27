@@ -5,8 +5,8 @@ public partial class Accelerative : Movement
 {
 	private Vector2 _velocity = Vector2.Zero;
 	private Vector2 _acceleration = Vector2.Zero;
-	public Accelerative(Movement movement, float transitionTime, Vector2 acceleration)
-		: base(movement, transitionTime)
+	public Accelerative(float transitionTime, Vector2 acceleration)
+		: base(transitionTime)
 	{
 		_acceleration = acceleration;
 	}
