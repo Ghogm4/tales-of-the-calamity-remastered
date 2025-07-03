@@ -19,6 +19,7 @@ public partial class Circular : Movement
     }
     public override void _Ready()
     {
+        base._Ready();
     }
     public override void UpdateContext(double delta)
     {

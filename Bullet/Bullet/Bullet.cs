@@ -4,7 +4,6 @@ using System.Threading;
 using System.Threading.Tasks;
 public partial class Bullet : Node2D
 {
-	public Movement CurrentMovement = null;
 	public bool IsInPool = true;
 	public float LifeTime = 10f;
 	public bool ReturnWhenExit = false;
@@ -15,7 +14,6 @@ public partial class Bullet : Node2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		CurrentMovement?.Update(delta);
 		LifeTime -= (float)delta;
 		if (LifeTime < 0 && !_isDisappearing) OnLifeTimeExceeded();
 	}
@@ -33,10 +31,6 @@ public partial class Bullet : Node2D
 		_isDisappearing = true;
 		Disappear();
 	}
-	public void TransitToNextMovement(Movement movement)
-	{ 
-		CurrentMovement = movement;
-    }
 	public void Disappear()
 	{
 		Tween tween = GetTree().CreateTween();

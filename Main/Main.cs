@@ -8,14 +8,15 @@ public partial class Main : Node
         BulletBuilder builder = new();
         builder
             .SetMovementPhases(
+            new Vector2(500, 0),
             new Accelerative(2f, new Vector2(0, 500)),
-            new Circular(999f, 150, 0, new Vector2(400, 500), false)
+            new Circular(999f, 150, 50, new Vector2(400, 500), false)
             )
-        .SetBulletSpecific(new Vector2(500, 0), 5f, true);
+        .SetBulletSpecific(5f, true);
         AddChild(builder.GetResult());
         AddChild(new BulletPattern());
     }
-
+    
     public override void _Process(double delta)
     {
 
