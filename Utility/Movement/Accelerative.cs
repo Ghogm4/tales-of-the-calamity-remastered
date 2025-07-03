@@ -10,10 +10,6 @@ public partial class Accelerative : Movement
 	{
 		_acceleration = acceleration;
 	}
-	public override void _Ready()
-	{
-		base._Ready();
-	}
     public override void UpdateContext(double delta)
     {
 		float deltaF = (float)delta;

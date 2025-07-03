@@ -17,10 +17,6 @@ public partial class Circular : Movement
         _pivot = pivot;
         _direction = clockwise ? 1 : -1;
     }
-    public override void _Ready()
-    {
-        base._Ready();
-    }
     public override void UpdateContext(double delta)
     {
         if (CurrentRadian == null) CurrentRadian = (Context.Position - _pivot).Angle();
