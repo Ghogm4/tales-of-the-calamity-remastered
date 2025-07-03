@@ -1,6 +1,6 @@
 using Godot;
 using System;
-
+[GlobalClass]
 public partial class BulletPattern : Node
 {
     [Export] public float InitialWait = 1f;
