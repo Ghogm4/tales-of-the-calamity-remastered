@@ -5,12 +5,7 @@ using System.ComponentModel.DataAnnotations;
 public partial class BulletBuilder : Node
 {
     private Bullet _result = ResourceLoader.Load<PackedScene>("res://Bullet/Bullet/Bullet.tscn").Instantiate<Bullet>();
-    public override void _Ready()
-    {
-    }
-    public override void _Process(double delta)
-    {
-    }
+
     public Bullet GetResult()
     {
         return _result;
