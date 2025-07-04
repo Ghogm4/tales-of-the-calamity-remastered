@@ -16,7 +16,7 @@ public partial class Main : Node
         AddChild(builder.GetResult());
         AddChild(new BulletPattern());
     }
-    
+
     public override void _Process(double delta)
     {
 
