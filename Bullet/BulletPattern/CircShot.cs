@@ -6,13 +6,6 @@ public partial class CircShot : BulletPattern
     [Export] public int BulletCount = 8;
     [Export] public MovementRes[] MoveRes = [];
     [Export] public float InitialSpeed = 150f;
-    public override void _Ready()
-    {
-    }
-
-    public override void _Process(double delta)
-    {
-    }
     public override void Launch()
     {
         float currentRadian = (float)GD.RandRange(0, Math.Tau);
