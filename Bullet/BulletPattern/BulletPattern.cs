@@ -7,11 +7,13 @@ public partial class BulletPattern : Node
     [Export] public float FireWait = 1f;
     [Export] public float BurstWait = 0.2f;
     [Export] public int BurstCount = 3;
+    [Export] public float LifeTime = 10;
+    [Export] public bool ReturnWhenExit = false;
     private bool _duringInitialWait = true;
     private bool _duringFire = false;
-    private float _fireWait;
-    private float _burstWait;
-    private int _burstCount;
+    private float _fireWait = 1f;
+    private float _burstWait = 0.2f;
+    private int _burstCount = 3;
     public override void _Ready()
     {
         _fireWait = FireWait;
@@ -27,7 +29,6 @@ public partial class BulletPattern : Node
     }
     public virtual void Launch()
     {
-
     }
     public void InitialTimer(double delta)
     {

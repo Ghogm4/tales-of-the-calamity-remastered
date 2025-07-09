@@ -1,6 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddvypv8a84ql4"]
+[gd_scene load_steps=7 format=3 uid="uid://ddvypv8a84ql4"]
 
 [ext_resource type="Script" uid="uid://b5nbga14ad2x1" path="res://Main/Main.cs" id="1_lxy7q"]
+[ext_resource type="Script" uid="uid://ib2ln2tw5tc7" path="res://Bullet/BulletPattern/CircShot.cs" id="2_83ytx"]
+[ext_resource type="Script" uid="uid://drryp4k5c5nqp" path="res://Utility/Movement/CircularRes.cs" id="3_amygn"]
+[ext_resource type="Script" uid="uid://dg4m70y2r2oo2" path="res://Utility/Movement/AccelerativeRes.cs" id="4_ps1la"]
+
+[sub_resource type="Resource" id="Resource_ps1la"]
+script = ExtResource("3_amygn")
+Radius = 50.0
+RadiusAcce = 100.0
+Pivot = Vector2(0, 0)
+Clockwise = true
+TransitionTime = 1.5
+metadata/_custom_type_script = "uid://drryp4k5c5nqp"
+
+[sub_resource type="Resource" id="Resource_6aewd"]
+script = ExtResource("4_ps1la")
+Acceleration = Vector2(0, 500)
+TransitionTime = 1.0
+metadata/_custom_type_script = "uid://dg4m70y2r2oo2"
 
 [node name="Main" type="Node"]
 script = ExtResource("1_lxy7q")
+
+[node name="CircShot" type="Node" parent="."]
+script = ExtResource("2_83ytx")
+MoveRes = [SubResource("Resource_ps1la"), SubResource("Resource_6aewd")]
+FireWait = 0.5
+BurstWait = 0.5
+BurstCount = 50
+LifeTime = 100.0
+metadata/_custom_type_script = "uid://ib2ln2tw5tc7"

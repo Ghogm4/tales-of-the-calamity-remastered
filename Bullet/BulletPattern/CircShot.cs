@@ -1,15 +1,29 @@
 using Godot;
 using System;
-
+[GlobalClass]
 public partial class CircShot : BulletPattern
 {
-    // Called when the node enters the scene tree for the first time.
+    [Export] public int BulletCount = 8;
+    [Export] public MovementRes[] MoveRes = [];
+    [Export] public float InitialSpeed = 150f;
     public override void _Ready()
     {
     }
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)
     {
+    }
+    public override void Launch()
+    {
+        float currentRadian = (float)GD.RandRange(0, Math.Tau);
+        float radianChange = (float)Math.Tau / BulletCount;
+        for (int i = 0; i < BulletCount; ++i)
+        {
+            BulletBuilder builder = new();
+            builder.SetBulletSpecific(LifeTime, ReturnWhenExit)
+                .SetMovementPhases((Vector2.Right * InitialSpeed).Rotated(currentRadian), MoveRes);
+            GetParent().AddChild(builder.GetResult());
+            currentRadian += radianChange;
+        }
     }
 }
