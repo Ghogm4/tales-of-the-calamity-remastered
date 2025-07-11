@@ -12,7 +12,7 @@ public partial class CircShot : BulletPattern
         float radianChange = (float)Math.Tau / BulletCount;
         for (int i = 0; i < BulletCount; ++i)
         {
-            BulletBuilder builder = new();
+            BulletBuilder builder = new("Bullet");
             builder.SetBulletSpecific(LifeTime, ReturnWhenExit)
                 .SetMovementPhases((Vector2.Right * InitialSpeed).Rotated(currentRadian), MoveRes);
             GetParent().AddChild(builder.GetResult());

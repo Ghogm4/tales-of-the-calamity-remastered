@@ -6,7 +6,10 @@ using System.ComponentModel.DataAnnotations;
 public partial class BulletBuilder : Node
 {
     private Bullet _result = ResourceLoader.Load<PackedScene>("res://Bullet/Bullet/Bullet.tscn").Instantiate<Bullet>();
-
+    public BulletBuilder(string bulletName)
+    {
+        _result = ResourceLoader.Load<PackedScene>($"res://Bullet/Bullet/{bulletName}.tscn").Instantiate<Bullet>();
+    }
     public Bullet GetResult()
     {
         return _result;
