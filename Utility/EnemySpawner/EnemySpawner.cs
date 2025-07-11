@@ -5,6 +5,7 @@ public partial class EnemySpawner : Marker2D
 {
 	[Export] public string[] EnemyList = [];
 	[Export] public MovementRes[] MoveRes = [];
+	[Export] public BulletPatternRes[] PatternRes = [];
 	[Export] public float InitialWait = 1f;
 	[Export] public float SpawnInterval = 0.5f;
 	private float _spawnInterval = 0f;

@@ -3,6 +3,13 @@ using System;
 [GlobalClass]
 public partial class CircShot : BulletPattern
 {
+    public enum LaunchMode
+    {
+        Random,
+        Fixed,
+        Player
+    }
+    private LaunchMode _launchMode = LaunchMode.Fixed;
     [Export] public int BulletCount = 8;
     [Export] public MovementRes[] MoveRes = [];
     [Export] public float InitialSpeed = 150f;

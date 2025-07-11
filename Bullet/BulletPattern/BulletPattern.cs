@@ -3,12 +3,12 @@ using System;
 [GlobalClass]
 public partial class BulletPattern : Node
 {
-    [Export] public float InitialWait = 1f;
-    [Export] public float FireWait = 1f;
-    [Export] public float BurstWait = 0.2f;
-    [Export] public int BurstCount = 3;
-    [Export] public float LifeTime = 10;
-    [Export] public bool ReturnWhenExit = false;
+    public float InitialWait = 1f;
+    public float FireWait = 1f;
+    public float BurstWait = 0.2f;
+    public int BurstCount = 3;
+    public float LifeTime = 10;
+    public bool ReturnWhenExit = false;
     private bool _duringInitialWait = true;
     private bool _duringFire = false;
     private float _fireWait = 1f;
