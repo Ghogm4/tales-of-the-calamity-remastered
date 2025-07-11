@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://tvwqxhw2crby"]
+[gd_scene load_steps=2 format=3 uid="uid://tvwqxhw2crby"]
+
+[ext_resource type="Script" uid="uid://dvsi2ay36jcu4" path="res://Utility/EnemySpawner/EnemySpawner.cs" id="1_62bo2"]
 
 [node name="EnemySpawner" type="Marker2D"]
+gizmo_extents = 20.0
+script = ExtResource("1_62bo2")
