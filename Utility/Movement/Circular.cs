@@ -1,6 +1,6 @@
 using Godot;
 using System;
-
+[GlobalClass]
 public partial class Circular : Movement
 {
     public float? CurrentRadian = null;

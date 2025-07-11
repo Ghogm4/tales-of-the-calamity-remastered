@@ -1,7 +1,7 @@
 using Godot;
 using System;
 [GlobalClass]
-public partial class BulletPattern : Node
+public partial class BulletPattern : Node2D
 {
     public float InitialWait = 1f;
     public float FireWait = 1f;
@@ -9,6 +9,7 @@ public partial class BulletPattern : Node
     public int BurstCount = 3;
     public float LifeTime = 10;
     public bool ReturnWhenExit = false;
+    public float InitialSpeed = 150f;
     private bool _duringInitialWait = true;
     private bool _duringFire = false;
     private float _fireWait = 1f;

@@ -10,6 +10,7 @@ public partial class EnemySpawner : Marker2D
 	[Export] public float SpawnInterval = 0.5f;
 	private float _spawnInterval = 0f;
 	private bool _duringInitialWait = true;
+	private int _spawnCount = 0;
 	public override void _Ready()
 	{
 	}
@@ -19,9 +20,12 @@ public partial class EnemySpawner : Marker2D
 		InitialTimer(delta);
 		SpawnTimer(delta);
 	}
-	public void Spawn()
+	public void Spawn(string enemyName)
 	{
-
+		_spawnCount++;
+		Enemy enemy = ResourceLoader.Load<PackedScene>($"res://Enemy/{enemyName}.tscn").Instantiate<Enemy>();
+		enemy.Position = Position;
+		GetParent().AddChild(enemy);
 	}
 	public void InitialTimer(double delta)
 	{
@@ -31,12 +35,12 @@ public partial class EnemySpawner : Marker2D
 	}
 	public void SpawnTimer(double delta)
 	{
-		if (_duringInitialWait) return;
+		if (_duringInitialWait || _spawnCount >= EnemyList.Length) return;
 		_spawnInterval -= (float)delta;
 		if (_spawnInterval < 0)
 		{
 			_spawnInterval = SpawnInterval;
-			Spawn();
+			Spawn(EnemyList[_spawnCount]);
 		}
 	}
 }

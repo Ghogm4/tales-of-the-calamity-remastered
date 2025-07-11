@@ -5,7 +5,7 @@ public partial class Movement : Node
 {
     public Movement NextMovement = null;
     public float TransitionTime = 1f;
-    public Bullet Context = null;
+    public Node2D Context = null;
     public bool IsFirstInChain = false;
     private Vector2 _lastPosition = Vector2.Zero;
     private float _frameDuration = 0.0167f;

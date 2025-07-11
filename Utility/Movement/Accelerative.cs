@@ -1,6 +1,6 @@
 using Godot;
 using System;
-
+[GlobalClass]
 public partial class Accelerative : Movement
 {
     private Vector2 _velocity = Vector2.Zero;
