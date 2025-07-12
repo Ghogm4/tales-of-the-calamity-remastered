@@ -10,6 +10,7 @@ public partial class BulletPattern : Node2D
     public float LifeTime = 10;
     public bool ReturnWhenExit = false;
     public float InitialSpeed = 150f;
+    public MovementRes[] MoveRes = [];
     private bool _duringInitialWait = true;
     private bool _duringFire = false;
     private float _fireWait = 1f;

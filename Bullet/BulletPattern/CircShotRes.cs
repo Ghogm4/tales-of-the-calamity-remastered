@@ -13,10 +13,10 @@ public partial class CircShotRes : BulletPatternRes
         CircShotBuilder builder = new();
         builder
             .SetBurstCount(BurstCount)
-            .SetBulletSpecific(LifeTime, ReturnWhenExit, BulletInitialSpeed)
+            .SetBulletSpecific(LifeTime, ReturnWhenExit, BulletInitialSpeed, BulletMoveRes)
             .SetMovementPhases(InitialVelocity, MoveRes)
             .SetWait(InitialWait, FireWait, BurstWait);
         builder.SetCircShotSpecific(Mode, BulletCount, FixedAngle);
-        return builder.GetResult() as CircShot;
+        return builder.GetResult();
     }
 }

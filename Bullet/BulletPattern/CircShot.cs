@@ -12,9 +12,10 @@ public partial class CircShot : BulletPattern
     public LaunchMode Mode = LaunchMode.Fixed;
     public float FixedAngle = 0f;
     public int BulletCount = 8;
-    public MovementRes[] MoveRes = [];
+    
     public override void Launch()
     {
+        GD.Print(GetParent());
         float currentRadian = GetRadian();
         float radianChange = (float)Math.Tau / BulletCount;
         for (int i = 0; i < BulletCount; ++i)
@@ -22,7 +23,9 @@ public partial class CircShot : BulletPattern
             BulletBuilder builder = new("Bullet");
             builder.SetBulletSpecific(LifeTime, ReturnWhenExit)
                 .SetMovementPhases((Vector2.Right * InitialSpeed).Rotated(currentRadian), MoveRes);
-            GetParent().AddChild(builder.GetResult());
+            Bullet bullet = builder.GetResult();
+            bullet.GlobalPosition = GlobalPosition;
+            BulletManager.Instance.AddChild(bullet);
             currentRadian += radianChange;
         }
     }

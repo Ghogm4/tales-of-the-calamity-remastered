@@ -1,20 +1,18 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class EnemySpawner : Marker2D
 {
 	[Export] public string[] EnemyList = [];
-	[Export] public MovementRes[] MoveRes = [];
+    [Export] public Vector2 InitialVelocity = Vector2.Zero;
+    [Export] public MovementRes[] MoveRes = [];
 	[Export] public BulletPatternRes[] PatternRes = [];
 	[Export] public float InitialWait = 1f;
 	[Export] public float SpawnInterval = 0.5f;
 	private float _spawnInterval = 0f;
 	private bool _duringInitialWait = true;
 	private int _spawnCount = 0;
-	public override void _Ready()
-	{
-	}
-
 	public override void _PhysicsProcess(double delta)
 	{
 		InitialTimer(delta);
@@ -25,7 +23,9 @@ public partial class EnemySpawner : Marker2D
 		_spawnCount++;
 		Enemy enemy = ResourceLoader.Load<PackedScene>($"res://Enemy/{enemyName}.tscn").Instantiate<Enemy>();
 		enemy.Position = Position;
-		GetParent().AddChild(enemy);
+        SetMovementPhases(enemy);
+		BindbulletPatterns(enemy);
+        GetParent().AddChild(enemy);
 	}
 	public void InitialTimer(double delta)
 	{
@@ -41,6 +41,34 @@ public partial class EnemySpawner : Marker2D
 		{
 			_spawnInterval = SpawnInterval;
 			Spawn(EnemyList[_spawnCount]);
+		}
+	}
+	public void SetMovementPhases(Enemy enemy)
+	{
+        List<Movement> movements = new();
+        foreach (MovementRes res in MoveRes)
+        {
+            movements.Add(res.Create());
+        }
+        movements[0].ReceiveVelocity(InitialVelocity);
+        for (int i = 0; i < movements.Count - 1; ++i)
+        {
+            movements[i].NextMovement = movements[i + 1];
+        }
+        foreach (Movement movement in movements)
+        {
+            enemy.AddChild(movement);
+            movement.Context = enemy;
+        }
+        movements[0].IsFirstInChain = true;
+    }
+	public void BindbulletPatterns(Enemy enemy)
+	{
+		foreach (BulletPatternRes res in PatternRes)
+		{
+			BulletPattern pattern = res.Create();
+			pattern.Position = Vector2.Zero;
+			enemy.AddChild(pattern);
 		}
 	}
 }
