@@ -1,6 +1,6 @@
 using Godot;
 using System;
-
+[GlobalClass]
 public partial class Wait : Statement
 {
     [Export] public int WaitFrames = 10;

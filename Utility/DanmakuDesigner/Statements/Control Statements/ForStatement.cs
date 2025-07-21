@@ -1,6 +1,6 @@
 using Godot;
 using System;
-
+[GlobalClass]
 public partial class ForStatement : ControlStatement
 {
     [Export] public string LoopVariableName = "";
