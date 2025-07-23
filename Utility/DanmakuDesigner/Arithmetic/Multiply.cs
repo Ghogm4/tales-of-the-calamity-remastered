@@ -1,12 +1,12 @@
 using Godot;
 using System;
-
+[GlobalClass]
 public partial class Multiply : Arithmetic
 {
     [Export] public Arithmetic LeftOperand = new();
     [Export] public Arithmetic RightOperand = new();
-    public override float GetValue()
+    public override float GetValue(ControlStatement scope)
     {
-        return LeftOperand.GetValue() * RightOperand.GetValue();
+        return LeftOperand.GetValue(scope) * RightOperand.GetValue(scope);
     }
 }

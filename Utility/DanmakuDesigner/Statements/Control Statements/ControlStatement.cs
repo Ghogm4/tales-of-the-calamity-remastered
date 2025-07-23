@@ -1,7 +1,7 @@
 using Godot;
 using Godot.Collections;
 using System;
-
+[GlobalClass]
 public partial class ControlStatement : Statement
 {
     public Dictionary<string, float> VariableList = [];

@@ -13,16 +13,16 @@ public partial class Statement : Resource
     }
     public float FindVariable(string variableName)
     {
-        ControlStatement parent = Parent;
-        while (parent != null)
+        ControlStatement currentScope = Parent;
+        while (currentScope != null)
         {
-            if (parent.VariableList.ContainsKey(variableName))
+            if (currentScope.VariableList.ContainsKey(variableName))
             {
-                return parent.VariableList[variableName];
+                return currentScope.VariableList[variableName];
             }
             else
             {
-                parent = parent.Parent;
+                currentScope = currentScope.Parent;
             }
         }
         return 0f;

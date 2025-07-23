@@ -1,23 +1,23 @@
 using Godot;
 using System;
-
+[GlobalClass]
 public partial class SetValue : Statement
 {
     [Export] public string VariableName = "";
-    [Export] public float VariableValue = 0f;
+    [Export] public Arithmetic ValueToBeSet = null;
     public override bool Run()
     {
-        ControlStatement parent = Parent;
-        while (parent != null)
+        ControlStatement currentScope = Parent;
+        while (currentScope != null)
         {
-            if (parent.VariableList.ContainsKey(VariableName))
+            if (currentScope.VariableList.ContainsKey(VariableName))
             {
-                parent.VariableList[VariableName] = VariableValue;
+                currentScope.VariableList[VariableName] = ValueToBeSet.GetValue(currentScope);
                 return true;
             }
             else
             {
-                parent = parent.Parent;
+                currentScope = currentScope.Parent;
             }
         }
         return true;
